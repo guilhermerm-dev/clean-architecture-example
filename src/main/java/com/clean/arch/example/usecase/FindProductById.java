@@ -11,7 +11,7 @@ public class FindProductById {
 
     ProductRepository productRepository;
 
-    public Product findProductById(int productId) {
+    public Product execute(int productId) {
         return productRepository.findProductById(productId);
     }
 

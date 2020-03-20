@@ -8,7 +8,7 @@ public class DeleteProduct {
 
     ProductRepository productRepository;
 
-    public void deleteProduct(int productId) {
+    public void execute(int productId) {
         productRepository.deleteProduct(productId);
     }
 }

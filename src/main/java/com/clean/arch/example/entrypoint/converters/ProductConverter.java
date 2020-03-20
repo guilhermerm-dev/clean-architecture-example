@@ -6,7 +6,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-class ProductConverter {
+public class ProductConverter {
     public static Product toDomain(ProductDto productDto) {
         return Product.builder()
                 .Id(productDto.getId())

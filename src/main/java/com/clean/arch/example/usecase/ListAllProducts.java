@@ -12,7 +12,7 @@ import java.util.List;
 public class ListAllProducts {
     ProductRepository productRepository;
 
-    public List<Product> listAllProducts() {
+    public List<Product> execute() {
         return productRepository.listAllProducts();
     }
 }

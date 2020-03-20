@@ -14,7 +14,7 @@ public interface ProductRepository {
 
     void deleteProduct(int productId);
 
-    void editProduct();
+    void editProduct(Product product);
 
     void createProduct(Product product);
 }

@@ -1,10 +1,12 @@
 package com.clean.arch.example.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Product {
 
     private int Id;
