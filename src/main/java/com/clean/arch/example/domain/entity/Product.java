@@ -1,10 +1,8 @@
 package com.clean.arch.example.domain.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -17,6 +15,7 @@ import lombok.*;
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     private String Name;
     private String Description;

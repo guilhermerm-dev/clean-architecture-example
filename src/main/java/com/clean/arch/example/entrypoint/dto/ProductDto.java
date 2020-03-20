@@ -3,6 +3,7 @@ package com.clean.arch.example.entrypoint.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Getter

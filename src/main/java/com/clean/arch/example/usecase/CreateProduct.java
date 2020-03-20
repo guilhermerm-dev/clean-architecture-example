@@ -12,7 +12,6 @@ public class CreateProduct {
     ProductRepository productRepository;
 
     public void execute(Product product) {
-        productRepository.createProduct(product.getId(), product.getName()
-                , product.getDescription(), product.getQuantity());
+        productRepository.save(product);
     }
 }

@@ -21,8 +21,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "UPDATE store.product SET name = :name, description = :description, quantity = :quantity WHERE Id = :id", nativeQuery = true)
     void editProduct(Integer id, String name, String description, Integer quantity);
-
-    @Query(value = "INSERT INTO store.product (id , \"name\" , description , quantity ) " +
-            "VALUES (:id,:name,:description,:quantity);", nativeQuery = true)
-    void createProduct(Integer id, String name, String description, Integer quantity);
 }
