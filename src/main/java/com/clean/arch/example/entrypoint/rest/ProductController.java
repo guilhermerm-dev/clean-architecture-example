@@ -27,13 +27,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public List<Product> listAllProducts() {
-        return listAllProducts.execute();
+    public List<ProductDto> listAllProducts() {
+        return ProductConverter.toDtos(listAllProducts.execute());
     }
 
     @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
-    public Product findProductById(@RequestParam Integer productId) {
-        return findProductById.execute(productId);
+    public ProductDto findProductById(@PathVariable(value = "productId") int productId) {
+        return ProductConverter.toDto(findProductById.execute(productId));
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.PUT)
@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/{productId}", method = RequestMethod.DELETE)
-    public void deleteProduct(@RequestParam Integer productId) {
+    public void deleteProduct(@PathVariable(value = "productId") Integer productId) {
         deleteProduct.execute(productId);
     }
 }

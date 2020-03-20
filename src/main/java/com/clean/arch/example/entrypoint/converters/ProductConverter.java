@@ -5,6 +5,9 @@ import com.clean.arch.example.entrypoint.dto.ProductDto;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductConverter {
     public static Product toDomain(ProductDto productDto) {
@@ -13,5 +16,21 @@ public class ProductConverter {
                 .Description(productDto.getDescription())
                 .Name(productDto.getName())
                 .Quantity(productDto.getQuantity()).build();
+    }
+
+    public static List<ProductDto> toDtos(List<Product> products) {
+        return products.stream().map(product -> ProductDto.builder()
+                .Id(product.getId())
+                .Description(product.getDescription())
+                .Name(product.getName())
+                .Quantity(product.getQuantity()).build()).collect(Collectors.toList());
+    }
+
+    public static ProductDto toDto(Product product) {
+        return ProductDto.builder()
+                .Id(product.getId())
+                .Description(product.getDescription())
+                .Name(product.getName())
+                .Quantity(product.getQuantity()).build();
     }
 }

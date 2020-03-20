@@ -2,8 +2,7 @@ package com.clean.arch.example.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Table;
 
 import lombok.*;
 
@@ -13,10 +12,11 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
+
+@Table(schema = "store", name = "product")
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
     private String Name;
     private String Description;

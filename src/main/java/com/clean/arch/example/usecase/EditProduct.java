@@ -12,6 +12,6 @@ public class EditProduct {
     ProductRepository productRepository;
 
     public void execute(Product product) {
-        productRepository.editProduct(product);
+        productRepository.editProduct(product.getId(), product.getName(), product.getDescription(), product.getQuantity());
     }
 }
