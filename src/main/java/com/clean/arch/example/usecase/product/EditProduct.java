@@ -1,4 +1,4 @@
-package com.clean.arch.example.usecase;
+package com.clean.arch.example.usecase.product;
 
 import com.clean.arch.example.domain.entity.Product;
 import com.clean.arch.example.domain.port.ProductRepository;
@@ -15,6 +15,6 @@ public class EditProduct {
 
     public void execute(Product product) {
         productRepository.editProduct(product.getId(), product.getName(), product.getDescription(),
-                product.getQuantity());
+                product.getQuantity(), product.getPrice());
     }
 }

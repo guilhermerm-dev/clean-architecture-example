@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 public class ProductDto {
-    private int Id;
     private int Code;
     private String Name;
     private String Description;
+    private double Price;
     private int Quantity;
 }

@@ -1,4 +1,4 @@
-package com.clean.arch.example.usecase;
+package com.clean.arch.example.usecase.product;
 
 import com.clean.arch.example.config.error.exception.ValidationException;
 import com.clean.arch.example.config.error.model.Error;
@@ -19,7 +19,7 @@ public class CreateProduct {
         if (productRepository.checkIfExistProduct(product.getCode(), product.getName()))
             throw new ValidationException(Error.builder()
                     .identifier(product.getName())
-                    .message("Product already been in data base")
+                    .message("Product code: " + product.getCode() + ", already been in data base")
                     .build());
 
         productRepository.save(product);

@@ -1,4 +1,4 @@
-package com.clean.arch.example.usecase;
+package com.clean.arch.example.usecase.product;
 
 import com.clean.arch.example.domain.entity.Product;
 import com.clean.arch.example.domain.port.ProductRepository;

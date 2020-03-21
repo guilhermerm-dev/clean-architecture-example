@@ -2,7 +2,7 @@ package com.clean.arch.example.entrypoint.rest;
 
 import com.clean.arch.example.entrypoint.converters.ProductConverter;
 import com.clean.arch.example.entrypoint.dto.ProductDto;
-import com.clean.arch.example.usecase.*;
+import com.clean.arch.example.usecase.product.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-
+@RequestMapping("/products")
 public class ProductController {
 
     private final CreateProduct createProduct;
@@ -21,28 +21,28 @@ public class ProductController {
     private final FindProductById findProductById;
     private final ListAllProducts listAllProducts;
 
-    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    @PostMapping()
     public void createProduct(@RequestBody ProductDto product) {
         createProduct.execute(ProductConverter.toDomain(product));
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductDto> listAllProducts() {
         return ProductConverter.toDtos(listAllProducts.execute());
     }
 
-    @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProductDto findProductById(@PathVariable(value = "productId") int productId) {
-        return ProductConverter.toDto(findProductById.execute(productId));
+    @GetMapping(value = "/{code}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductDto findProductById(@PathVariable(value = "code") int code) {
+        return ProductConverter.toDto(findProductById.execute(code));
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.PUT)
+    @PutMapping()
     public void editProduct(@RequestBody ProductDto product) {
         editProduct.execute(ProductConverter.toDomain(product));
     }
 
-    @RequestMapping(value = "/products/{productId}", method = RequestMethod.DELETE)
-    public void deleteProduct(@PathVariable(value = "productId") Integer productId) {
-        deleteProduct.execute(productId);
+    @DeleteMapping(value = "/{code}")
+    public void deleteProduct(@PathVariable(value = "code") int code) {
+        deleteProduct.execute(code);
     }
 }

@@ -3,7 +3,6 @@ package com.clean.arch.example.domain.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -21,8 +20,6 @@ public class Product {
     private int Code;
     private String Name;
     private String Description;
+    private double Price;
     private int Quantity;
-    private boolean IsDeleted;
-    private LocalDateTime InsertedDate;
-    private LocalDateTime UpdatedDate;
 }

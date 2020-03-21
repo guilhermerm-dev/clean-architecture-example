@@ -1,4 +1,4 @@
-package com.clean.arch.example.usecase;
+package com.clean.arch.example.usecase.product;
 
 import com.clean.arch.example.domain.port.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ public class DeleteProduct {
 
     ProductRepository productRepository;
 
-    public void execute(int productId) {
-        productRepository.deleteProduct(productId);
+    public void execute(int code) {
+        productRepository.deleteProduct(code);
     }
 }

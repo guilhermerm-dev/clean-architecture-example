@@ -1,4 +1,4 @@
-package com.clean.arch.example.usecase;
+package com.clean.arch.example.usecase.product;
 
 import com.clean.arch.example.config.error.exception.ValidationException;
 import com.clean.arch.example.config.error.model.Error;
@@ -13,11 +13,11 @@ public class FindProductById {
 
     ProductRepository productRepository;
 
-    public Product execute(int productId) {
-        Product product = productRepository.findProductById(productId);
+    public Product execute(int code) {
+        Product product = productRepository.findProductById(code);
         if (product == null)
             throw new ValidationException(Error.builder()
-                    .message("Product id: " + productId + " not found")
+                    .message("Product code: " + code + ", not found")
                     .build());
 
         return product;
