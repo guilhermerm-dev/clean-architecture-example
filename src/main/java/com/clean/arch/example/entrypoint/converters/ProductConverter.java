@@ -5,6 +5,7 @@ import com.clean.arch.example.entrypoint.dto.ProductDto;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,12 +16,15 @@ public class ProductConverter {
                 .Id(productDto.getId())
                 .Description(productDto.getDescription())
                 .Name(productDto.getName())
-                .Quantity(productDto.getQuantity()).build();
+                .Quantity(productDto.getQuantity())
+                .InsertedDate(LocalDateTime.now())
+                .UpdatedDate(LocalDateTime.now()).build();
     }
 
     public static List<ProductDto> toDtos(List<Product> products) {
         return products.stream().map(product -> ProductDto.builder()
                 .Id(product.getId())
+                .Code(product.getCode())
                 .Description(product.getDescription())
                 .Name(product.getName())
                 .Quantity(product.getQuantity()).build()).collect(Collectors.toList());

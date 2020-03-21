@@ -1,10 +1,10 @@
 package com.clean.arch.example.entrypoint.rest;
 
-import com.clean.arch.example.domain.entity.Product;
 import com.clean.arch.example.entrypoint.converters.ProductConverter;
 import com.clean.arch.example.entrypoint.dto.ProductDto;
 import com.clean.arch.example.usecase.*;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +26,12 @@ public class ProductController {
         createProduct.execute(ProductConverter.toDomain(product));
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductDto> listAllProducts() {
         return ProductConverter.toDtos(listAllProducts.execute());
     }
 
-    @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ProductDto findProductById(@PathVariable(value = "productId") int productId) {
         return ProductConverter.toDto(findProductById.execute(productId));
     }

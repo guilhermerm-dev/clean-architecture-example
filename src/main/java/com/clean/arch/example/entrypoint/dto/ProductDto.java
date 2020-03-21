@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProductDto {
     private int Id;
+    private int Code;
     private String Name;
     private String Description;
     private int Quantity;
