@@ -18,7 +18,7 @@ public class ProductController {
     private final CreateProduct createProduct;
     private final DeleteProduct deleteProduct;
     private final EditProduct editProduct;
-    private final FindProductById findProductById;
+    private final FindOneProduct findProductById;
     private final ListAllProducts listAllProducts;
 
     @PostMapping()
@@ -32,7 +32,7 @@ public class ProductController {
     }
 
     @GetMapping(value = "/{code}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProductDto findProductById(@PathVariable(value = "code") int code) {
+    public ProductDto findOneProduct(@PathVariable(value = "code") int code) {
         return ProductConverter.toDto(findProductById.execute(code));
     }
 

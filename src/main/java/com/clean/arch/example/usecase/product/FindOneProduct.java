@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FindProductById {
+public class FindOneProduct {
 
     ProductRepository productRepository;
 
     public Product execute(int code) {
-        Product product = productRepository.findProductById(code);
+        Product product = productRepository.findOneProduct(code);
         if (product == null)
             throw new ValidationException(Error.builder()
                     .message("Product code: " + code + ", not found")

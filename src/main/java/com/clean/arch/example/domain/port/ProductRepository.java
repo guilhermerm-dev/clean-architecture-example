@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> listAllProducts();
 
     @Query(value = "SELECT product FROM Product product WHERE code = :code and is_deleted = false")
-    Product findProductById(int code);
+    Product findOneProduct(int code);
 
     @Transactional
     @Modifying
