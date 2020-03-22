@@ -7,8 +7,6 @@ import com.clean.arch.example.domain.port.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 @AllArgsConstructor
 public class CreateProduct {
@@ -16,7 +14,7 @@ public class CreateProduct {
     ProductRepository productRepository;
 
     public void execute(Product product) {
-        if (productRepository.checkIfExistProduct(product.getCode(), product.getName()))
+        if (productRepository.checkIfProductAlreadyExists(product.getCode(), product.getName()))
             throw new ValidationException(Error.builder()
                     .identifier(product.getName())
                     .message("Product code: " + product.getCode() + ", already been in data base")

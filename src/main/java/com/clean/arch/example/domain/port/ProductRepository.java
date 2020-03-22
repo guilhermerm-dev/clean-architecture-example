@@ -31,5 +31,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "SELECT EXISTS(SELECT 1 FROM store.product WHERE code = :productCode and " +
             "TRIM(LOWER(\"name\")) = TRIM(LOWER(:name)) and is_Deleted = false)", nativeQuery = true)
-    boolean checkIfExistProduct(int productCode, String name);
+    boolean checkIfProductAlreadyExists(int productCode, String name);
 }
