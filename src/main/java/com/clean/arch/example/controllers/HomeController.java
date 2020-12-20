@@ -1,4 +1,4 @@
-package com.clean.arch.example.entrypoint;
+package com.clean.arch.example.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;

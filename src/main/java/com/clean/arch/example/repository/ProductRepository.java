@@ -1,6 +1,6 @@
-package com.clean.arch.example.domain.port;
+package com.clean.arch.example.repository;
 
-import com.clean.arch.example.domain.entity.Product;
+import com.clean.arch.example.repository.entities.ProductTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,13 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<ProductTable, Integer> {
 
-    @Query(value = "SELECT product FROM Product product WHERE is_deleted = false")
-    List<Product> listAllProducts();
+    @Query(value = "SELECT product FROM ProductTable product WHERE is_deleted = false")
+    List<ProductTable> listProducts();
 
-    @Query(value = "SELECT product FROM Product product WHERE code = :code and is_deleted = false")
-    Product findOneProduct(int code);
+    @Query(value = "SELECT product FROM ProductTable product WHERE code = :code and is_deleted = false")
+    ProductTable findProduct(int code);
 
     @Transactional
     @Modifying

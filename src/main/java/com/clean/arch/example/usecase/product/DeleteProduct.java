@@ -1,6 +1,6 @@
 package com.clean.arch.example.usecase.product;
 
-import com.clean.arch.example.domain.port.ProductRepository;
+import com.clean.arch.example.gateway.ProductGateway;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class DeleteProduct {
 
-    ProductRepository productRepository;
+    ProductGateway productGateway;
 
     public void execute(int code) {
-        productRepository.deleteProduct(code);
+        productGateway.deleteProduct(code);
     }
 }
